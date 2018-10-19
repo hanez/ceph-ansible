@@ -1,7 +1,7 @@
 ---
 # This playbook is used to add a new OSD to
 # an existing cluster without the need for running
-# the ceph-docker-common or ceph-common and ceph-mon role again against all
+# the ceph-container-common or ceph-common and ceph-mon role again against all
 # of the existing monitors.
 #
 # It can run from any machine. Even if the fetch directory is not present
@@ -65,7 +65,7 @@
     - role: ceph-defaults
     - role: ceph-handler
     - role: ceph-infra
-    - role: ceph-docker-common
+    - role: ceph-container-common
       when: containerized_deployment | bool
     - role: ceph-common
       when: not containerized_deployment | bool

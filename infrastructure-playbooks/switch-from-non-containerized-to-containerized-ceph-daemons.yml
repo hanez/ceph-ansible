@@ -109,7 +109,7 @@
       failed_when: false
       when: ldb_files.rc == 0
 
-    - name: copy mon initial keyring in /etc/ceph to satisfy fetch config task in ceph-docker-common
+    - name: copy mon initial keyring in /etc/ceph to satisfy fetch config task in ceph-container-common
       command: cp /var/lib/ceph/mon/{{ cluster }}-{{ ansible_hostname }}/keyring /etc/ceph/{{ cluster }}.mon.keyring
       args:
         creates: /etc/ceph/{{ cluster }}.mon.keyring
@@ -119,7 +119,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-mon
 
   post_tasks:
@@ -177,7 +177,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-mgr
 
 
@@ -292,7 +292,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-osd
 
   post_tasks:
@@ -354,7 +354,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-mds
 
 
@@ -397,7 +397,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-rgw
 
 
@@ -440,7 +440,7 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-rbd-mirror
 
 
@@ -487,5 +487,5 @@
   roles:
     - ceph-defaults
     - ceph-handler
-    - ceph-docker-common
+    - ceph-container-common
     - ceph-nfs
